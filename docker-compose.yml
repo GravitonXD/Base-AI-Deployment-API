@@ -1,0 +1,21 @@
+version: "3.8"
+name: "breadcrumbs.ai"
+services:
+  main:
+    container_name: "breadcrumbs"
+    build: ./breadcrumbs
+    ports:
+      - 8080:8080
+    env_file:
+      - db.env
+  mongo_db:
+    container_name: "mongo_db"
+    image: "mongo:4.0"
+    ports:
+      - 27017:27017
+    volumes:
+      - api_db:/data/db
+    env_file:
+      - db.env
+volumes:
+  api_db:
