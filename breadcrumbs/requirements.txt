@@ -3,7 +3,6 @@ fastapi==0.110.0
 mongoengine==0.28.0
 uvicorn==0.27.1
 keras==2.15.0
-tensorflow==2.15.0.post1
 nvidia-cublas-cu12==12.2.5.6
 nvidia-cuda-cupti-cu12==12.2.142
 nvidia-cuda-nvcc-cu12==12.2.140
@@ -16,3 +15,4 @@ nvidia-cusolver-cu12==11.5.2.141
 nvidia-cusparse-cu12==12.1.2.141
 nvidia-nccl-cu12==2.16.5
 nvidia-nvjitlink-cu12==12.2.140
+tensorflow[and-cuda]==2.15.0.post1
