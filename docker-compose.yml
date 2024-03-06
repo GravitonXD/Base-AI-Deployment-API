@@ -7,7 +7,7 @@ services:
     ports:
       - 8080:8080
     env_file:
-      - db.env
+      - main.env
   mongo_db:
     container_name: "mongo_db"
     image: "mongo:4.0"
@@ -15,6 +15,9 @@ services:
       - 27017:27017
     volumes:
       - api_db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
     env_file:
       - db.env
 volumes:
