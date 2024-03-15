@@ -24,7 +24,51 @@ You should have received a copy of the GNU General Public License along with Bas
 3. <a href="https://www.mongodb.com/" data-bs-toggle="tooltip" data-bs-placement="right" title="Visit MongoDB's Homepage"> MongoDB </a>
 
 ## Other setups
-`TO FOLLOW`
+### Create `main.env` on the root directory
+<i> See `.env` file for the example template </i>
+```python
+MONGODB_NAME=api
+MONGODB_USERNAME=root
+MONGODB_PASSWORD=
+MONGODB_HOST=127.0.0.1
+MONGODB_PORT=27017
+```
 
+### Create `db.env` on the root directory
+<i> See `.env` file for the example template </i>
+```python
+MONGO_INITDB_DATABASE=api
+MONGO_HOST=127.0.0.1
+MONGO_PORT=27017
+```
+
+### Create `docker-compose.yml`
+<i> You may extend this based on your additional requirements/needs.</i>
+```yml
+version: "3.8"
+name: "breadcrumbs.ai"
+services:
+  main:
+    container_name: "breadcrumbs"
+    build: ./breadcrumbs
+    ports:
+      - 8080:8080
+    env_file:
+      - main.env
+  mongo_db:
+    container_name: "mongo_db"
+    image: "mongo:4.0"
+    ports:
+      - 27017:27017
+    volumes:
+      - api_db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD={password}
+    env_file:
+      - db.env
+volumes:
+  api_db:
+```
 # Usage
 `TO FOLLOW`
