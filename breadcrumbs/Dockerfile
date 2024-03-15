@@ -18,4 +18,4 @@ RUN pip3 --timeout=1000 install -r /breadcrumbs/requirements.txt
 
 
 # Execute the following command on container startup
-CMD ["python3", "-u", "./ai_processor/main.py"]
+CMD ["python3", "-u", "./main.py"]
